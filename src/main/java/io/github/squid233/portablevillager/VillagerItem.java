@@ -58,7 +58,7 @@ public class VillagerItem extends Item {
         if (EntityType.VILLAGER.spawn((ServerLevel) level,
             villager -> {
                 Vec3 position = villager.position();
-                try (ProblemReporter.ScopedCollector problemReporter = new ProblemReporter.ScopedCollector(PortableVillager.log)) {
+                try (ProblemReporter.ScopedCollector problemReporter = new ProblemReporter.ScopedCollector(PVCommon.log)) {
                     ValueInput valueInput = TagValueInput.create(problemReporter, level.registryAccess(), customData.copyTag());
                     villager.load(valueInput);
                 }
@@ -84,9 +84,9 @@ public class VillagerItem extends Item {
                 var type = villagerData.type();
                 var profession = villagerData.profession();
                 int level = villagerData.level();
-                consumer.accept(Component.translatable("itemTooltip.portable-villager.type", type.getRegisteredName()));
-                consumer.accept(Component.translatable("itemTooltip.portable-villager.profession", profession.value().name(), profession.getRegisteredName()));
-                consumer.accept(Component.translatable("itemTooltip.portable-villager.level", Component.translatableWithFallback("merchant.level." + level, "%s", level)));
+                consumer.accept(Component.translatable("itemTooltip.portable_villager.type", type.getRegisteredName()));
+                consumer.accept(Component.translatable("itemTooltip.portable_villager.profession", profession.value().name(), profession.getRegisteredName()));
+                consumer.accept(Component.translatable("itemTooltip.portable_villager.level", Component.translatableWithFallback("merchant.level." + level, "%s", level)));
             }
         }
     }

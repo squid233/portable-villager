@@ -1,0 +1,7 @@
+{
+  "item.portable_villager.villager": "Villager",
+  "item.portable-villager.villager": "Villager",
+  "itemTooltip.portable_villager.type": "Type: %s",
+  "itemTooltip.portable_villager.profession": "Profession: %s (%s)",
+  "itemTooltip.portable_villager.level": "Level: %d"
+}

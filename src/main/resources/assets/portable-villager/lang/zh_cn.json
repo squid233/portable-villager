@@ -1,6 +1,0 @@
-{
-  "item.portable-villager.villager": "村民",
-  "itemTooltip.portable-villager.type": "种类: %s",
-  "itemTooltip.portable-villager.profession": "职业: %s (%s)",
-  "itemTooltip.portable-villager.level": "等级: %d"
-}
