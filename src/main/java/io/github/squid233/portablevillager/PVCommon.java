@@ -6,7 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -27,7 +27,7 @@ public final class PVCommon {
     public static InteractionResult onPickVillager(Player player, Entity target, Level level) {
         GameType gameMode = player.gameMode();
         if (!player.isShiftKeyDown() ||
-            target.getType() != EntityType.VILLAGER ||
+            target.getType() != EntityTypes.VILLAGER ||
             !player.getMainHandItem().isEmpty() ||
             (target instanceof LivingEntity livingEntity && (livingEntity.isSleeping() || livingEntity.isDeadOrDying())) ||
             gameMode == null ||

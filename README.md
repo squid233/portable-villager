@@ -6,3 +6,8 @@
 Allows you to pick up villagers.
 
 ![demonstration](docs/demo.gif)
+
+## Additional Links
+
+- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/portable-villager)
+- [Modrinth](https://modrinth.com/mod/portable-villager)

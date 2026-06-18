@@ -9,7 +9,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.npc.villager.VillagerData;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -55,7 +55,7 @@ public class VillagerItem extends Item {
             ? clickedPos
             : clickedPos.relative(clickedFace);
 
-        if (EntityType.VILLAGER.spawn((ServerLevel) level,
+        if (EntityTypes.VILLAGER.spawn((ServerLevel) level,
             villager -> {
                 Vec3 position = villager.position();
                 try (ProblemReporter.ScopedCollector problemReporter = new ProblemReporter.ScopedCollector(PVCommon.log)) {
