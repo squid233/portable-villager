@@ -2,10 +2,10 @@ plugins {
     id("net.fabricmc.fabric-loom")
 }
 
-val mod_version: String by rootProject
-val maven_group: String by rootProject
+val mod_version = providers.gradleProperty("mod_version").get()
+val maven_group = providers.gradleProperty("maven_group").get()
 
-val minecraft_version: String by rootProject
+val minecraft_version = providers.gradleProperty("minecraft_version").get()
 
 group = maven_group
 version = mod_version

@@ -38,9 +38,6 @@ public class VillagerItem extends Item {
     public @NonNull InteractionResult useOn(@NonNull UseOnContext useOnContext) {
         ItemStack itemStack = useOnContext.getItemInHand();
         CustomData customData = itemStack.getComponents().getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
-        if (customData.isEmpty()) {
-            return InteractionResult.FAIL;
-        }
 
         Level level = useOnContext.getLevel();
         if (level.isClientSide()) {

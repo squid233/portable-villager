@@ -24,8 +24,8 @@
   ],
   "depends": {
     "fabricloader": "*",
-    "minecraft": "~26.1",
-    "java": ">=25",
+    "minecraft": "${minecraft_version_range}",
+    "java": ">=${required_java_version}",
     "fabric-api": "*"
   },
   "custom": {

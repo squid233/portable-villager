@@ -5,10 +5,10 @@ plugins {
 version = providers.gradleProperty("mod_version").get()
 group = providers.gradleProperty("maven_group").get()
 
-val mod_id: String by rootProject
-val required_java_version: String by rootProject
-val minecraft_version: String by rootProject
-val fabric_minecraft_version_range: String by rootProject
+val mod_id = providers.gradleProperty("mod_id").get()
+val required_java_version = providers.gradleProperty("required_java_version").get()
+val minecraft_version = providers.gradleProperty("minecraft_version").get()
+val fabric_minecraft_version_range = providers.gradleProperty("fabric_minecraft_version_range").get()
 
 base {
     archivesName = mod_id
@@ -41,7 +41,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly(rootProject)
+    compileOnly(project(":"))
     minecraft("com.mojang:minecraft:$minecraft_version")
     implementation("net.fabricmc:fabric-loader:${providers.gradleProperty("fabric_loader_version").get()}")
     implementation("net.fabricmc.fabric-api:fabric-api:${providers.gradleProperty("fabric_api_version").get()}")

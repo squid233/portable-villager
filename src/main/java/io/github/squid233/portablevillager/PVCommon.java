@@ -39,15 +39,18 @@ public final class PVCommon {
         }
         try (ProblemReporter.ScopedCollector problemReporter = new ProblemReporter.ScopedCollector(target.problemPath(), log)) {
             TagValueOutput valueOutput = TagValueOutput.createWithContext(problemReporter, target.registryAccess());
-            target.save(valueOutput);
+            target.stopRiding();
+            if (!target.saveAsPassenger(valueOutput)) {
+                return InteractionResult.FAIL;
+            }
             CompoundTag tag = valueOutput.buildResult();
             ItemStack itemStack = new ItemStack(PVItems.VILLAGER_ITEM);
             itemStack.applyComponentsAndValidate(DataComponentPatch.builder()
                 .set(DataComponents.CUSTOM_DATA, CustomData.of(tag))
                 .build());
             player.addItem(itemStack);
+            target.discard();
+            return InteractionResult.SUCCESS_SERVER;
         }
-        target.discard();
-        return InteractionResult.SUCCESS_SERVER;
     }
 }
