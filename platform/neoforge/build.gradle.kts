@@ -3,11 +3,11 @@ plugins {
     id("net.neoforged.moddev")
 }
 
-val mod_id: String by rootProject
-val mod_version: String by rootProject
-val minecraft_version: String by rootProject
-val neo_version: String by rootProject
-val neo_minecraft_version_range: String by rootProject
+val mod_id = providers.gradleProperty("mod_id").get()
+val mod_version = providers.gradleProperty("mod_version").get()
+val minecraft_version = providers.gradleProperty("minecraft_version").get()
+val neo_version = providers.gradleProperty("neo_version").get()
+val neo_minecraft_version_range = providers.gradleProperty("neo_minecraft_version_range").get()
 
 version = mod_version
 group = providers.gradleProperty("maven_group").get()
@@ -103,12 +103,12 @@ neoForge {
 // a dependency that will be present for runtime testing but that is
 // "optional", meaning it will not be pulled by dependents of this mod.
 configurations {
-    val localRuntime by registering
+    val localRuntime = register("localRuntime")
     runtimeClasspath.get().extendsFrom(localRuntime)
 }
 
 dependencies {
-    compileOnly(rootProject)
+    compileOnly(project(":"))
 }
 
 val copyCommonCode = tasks.register<Copy>("copyCommonCode") {
